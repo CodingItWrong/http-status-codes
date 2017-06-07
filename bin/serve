@@ -1,7 +1,3 @@
-#!/usr/bin/env ruby
-require 'sinatra'
-
-get '/:status_code' do |status_code|
-  status status_code
-  "You requested status code #{status_code}"
-end
+#!/usr/bin/env sh
+echo 'starting server on https://localhost.ssl:3000'
+bundle exec puma -b 'ssl://192.168.1.220:3000?key=ssl/server.key&cert=ssl/server.crt'

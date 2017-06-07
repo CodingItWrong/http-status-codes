@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+
+# see https://gist.github.com/trcarden/3295935
+
+mkdir -p ssl
+
+# be sure to set the common name to localhost.ssl!
+openssl req -new -newkey rsa:2048 -sha1 -days 365 -nodes -x509 -keyout ssl/server.key -out ssl/server.crt
+echo 'Created ssl/server.key and ssl/server.crt!'
+echo 'To finish setting up, open keychain tool, drag .crt file to system, and trust everything.'
+echo 'If doing iOS development, drag it onto the simulator too.'
+echo 'Then add 127.0.0.1 localhost.ssl to your hosts file'
+echo 'Then run the server with SSL using bin/serve'
